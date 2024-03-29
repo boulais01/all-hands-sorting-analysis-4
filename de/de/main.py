@@ -6,6 +6,7 @@ import typer
 from rich.console import Console
 
 from listmutator import approach, benchmark
+from pathlib import Path
 
 # create a Typer object to support the command-line interface
 cli = typer.Typer()
@@ -19,8 +20,11 @@ console = Console()
 
 @cli.command()
 def main(
-    listtype: approach.ListType = typer.Option(
-        approach.ListType.singlylinked,
+    filename: Path = typer.Option(
+        Path,
+    ),
+    funcname: str = typer.Option(
+        str,
     ),
     listdata: approach.ListData = typer.Option(
         approach.ListData.ints,
@@ -28,13 +32,8 @@ def main(
     strategy: approach.BenchmarkStrategy = typer.Option(
         approach.BenchmarkStrategy.double,
     ),
-    operation: approach.BenchmarkOperation = typer.Option(
-        approach.BenchmarkOperation.removefirst,
-    ),
-    startsize: int = typer.Option(1000),
-    runs: int = typer.Option(10),
 ):
-    """Evaluate the performance of list operations."""
+    """Evaluate the performance of a given sorting algorithm."""
     # display details about the configuration of the benchmarking tool
     console.print(
         "\n[bold red]Benchmarking Tool for List Operations[/bold red]\n"
