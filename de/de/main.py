@@ -5,7 +5,7 @@
 import typer
 from rich.console import Console
 
-from listmutator import approach, benchmark
+from listmutator import enumerations, benchmark
 from pathlib import Path
 
 # create a Typer object to support the command-line interface
@@ -26,17 +26,17 @@ def main(
     funcname: str = typer.Option(
         str,
     ),
-    listdata: approach.ListData = typer.Option(
-        approach.ListData.ints,
+    listdata: enumerations.ListData = typer.Option(
+        enumerations.ListData.ints,
     ),
-    strategy: approach.BenchmarkStrategy = typer.Option(
-        approach.BenchmarkStrategy.double,
+    strategy: enumerations.BenchmarkStrategy = typer.Option(
+        enumerations.BenchmarkStrategy.double,
     ),
 ):
     """Evaluate the performance of a given sorting algorithm."""
-    # display details about the configuration of the benchmarking tool
+    # display details about the efficiency of a sorting algorithm
     console.print(
-        "\n[bold red]Benchmarking Tool for List Operations[/bold red]\n"
+        "\n[bold red]Benchmarking Tool for Sorting Algorithms[/bold red]\n"
     )
     console.print(f"Type of list: {listtype}")
     console.print(f"Data stored in list: {listdata}")
