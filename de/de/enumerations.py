@@ -7,6 +7,8 @@ class ListData(str, Enum):
     """Define the data that will be stored in the list nodes of the lists."""
 
     ints = "ints"
+    strings = "strings"
+    floats = "strings"
 
     def __str__(self):
         """Define a default string representation."""

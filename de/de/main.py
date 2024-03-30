@@ -14,10 +14,6 @@ cli = typer.Typer()
 # create a console for display of rich text
 console = Console()
 
-# TODO: Make sure that you implement all of the required functions in the other
-# file that will ensure that these function(s) work correctly.
-
-
 @cli.command()
 def main(
     filename: Path = typer.Option(
