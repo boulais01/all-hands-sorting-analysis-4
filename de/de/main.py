@@ -5,7 +5,7 @@
 import typer
 from rich.console import Console
 
-from listmutator import enumerations, benchmark
+from de import enumerations, benchmark
 from pathlib import Path
 
 # create a Typer object to support the command-line interface

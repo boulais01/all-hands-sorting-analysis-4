@@ -2,7 +2,7 @@
 # using getattr()
 
 import inspect
-import simon's generator module
+from de import generate
 
 # how to get the parameters - is that somethign that I need to do
 def path(filename: path, funcname: string) -> ??:

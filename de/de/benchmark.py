@@ -1,6 +1,6 @@
 """Run a benchmark on a function provided by a list-based structure."""
 
-from listmutator import approach, generate
+from de import approach, generate
 from typing import Tuple, List
 from copy import deepcopy
 import timeit
