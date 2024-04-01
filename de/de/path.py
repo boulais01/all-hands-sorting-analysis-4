@@ -41,6 +41,7 @@ def get_function_as_callable(filename: Path, funcname: str) -> Callable:
     import sys
     # TODO: this doesn't work well yet...
     # execute code of given file
+    # how to execute just the one function we want and not the whole file?
     file = exec(open(filename).readlines())
 
     # parsing through the file to find the different function names
