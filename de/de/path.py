@@ -23,7 +23,7 @@ def path(filename: Path, funcname: str) -> Tuple[Callable, enumerations.Function
     the_function = get_function_as_callable(filename, funcname)
 
     # find what the parameter types are
-    parameters = get_parameters(filename, funcname)
+    parameters = get_parameters(the_function)
 
     # let's consider two cases:
     #   functions with args of f(array)
@@ -49,8 +49,6 @@ def get_function_as_callable(filename: Path, funcname: str) -> Callable:
 
 # def function(funcname):
 
-def get_parameters(filename: str, funcname: str):
-    import filename
-    function_call = filename.funcname()
-    parameters = inspect.getargspec(function_call).args
+def get_parameters(the_function: Callable):
+    parameters = inspect.getargspec(the_function).args
     return parameters
