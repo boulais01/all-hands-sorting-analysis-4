@@ -7,7 +7,7 @@ from de import generate
 
 # how to get the parameters - is that somethign that I need to do
 # not sure what the output should be
-def path(filename: Path, funcname: str):
+def path(filename: Path, funcname: str, size: int):
     """Return the function call with the appropriate parameters"""
     # test to see if it is a sorting funtion
     # try:
@@ -24,11 +24,11 @@ def path(filename: Path, funcname: str):
     # find what the parameter types are
     parameters = get_parameters(filename, funcname)
     if type(parameters) == int:
-        values = generate.generate_list_with_ints()
+        values = generate.generate_list_with_ints(size)
     if type(parameters) == str:
-        values = generate.generate_list_with_strings()
+        values = generate.generate_list_with_strings(size)
     if type(parameters) == float:
-        values = generate.generate_list_with_floats()
+        values = generate.generate_list_with_floats(size)
 
     # return the function call with the parameters passed in
     return filename.funcname(values)
