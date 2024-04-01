@@ -2,25 +2,36 @@
 # using getattr()
 
 import inspect
-import simon's generator module
+import generator
+from typing import Path
 
 # how to get the parameters - is that somethign that I need to do
-def path(filename: path, funcname: string) -> ??:
-    import filename
-    if filename.hasattr() is False:
-        print("This file does not seem to have that function.")
-    try:
-        filename.getattr(sort, )
-    catch:
-        print("Are you sure this is a sorting algorithm?")
+# not sure what the output should be
+def path(filename: Path, funcname: str) -> :
+    """Return the function call with the appropriate parameters"""
+    # test to see if it is a sorting funtion
+    # try:
+    #     if sort in funcname:
+    # catch:
+    #     print("Are you sure this is a sorting algorithm?")
     
+    # import the file
+    import filename
+    # could try and catch the bellow code
+    # if filename.funcname() is False:
+    #     print("This file does not seem to have that function.")
+
+    # find what the parameter types are
     parameters = get_parameters(filename, funcname)
-    if parameters == type int:
-        call int generator function
-    if parameters == type str:
-        call str generator function
-    if parameters == type float:
-        call float generator function
+    if type(parameters) == int:
+        values = generator.int_generator()
+    if type(parameters) == str:
+        values = generator.str_generator()
+    if type(parameters) == float:
+        values = generator.float_generator()
+
+    # return the function call with the parameters passed in
+    return filename.funcname(values)
 
 # https://stackoverflow.com/questions/23228664/how-to-check-which-arguments-a-function-method-takes
 # hasattr() - checks if a file has the function
