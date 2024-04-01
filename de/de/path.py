@@ -2,7 +2,7 @@
 # using getattr()
 
 import inspect
-from typing import Path
+from pathlib import Path
 from de import generate
 
 # how to get the parameters - is that somethign that I need to do
