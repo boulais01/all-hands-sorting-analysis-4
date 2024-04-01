@@ -2,16 +2,12 @@
 # using getattr()
 
 import inspect
-<<<<<<< HEAD
-import generator
 from typing import Path
-=======
 from de import generate
->>>>>>> 21303b7fc74636f61e2e1b101bb40deafc2eb040
 
 # how to get the parameters - is that somethign that I need to do
 # not sure what the output should be
-def path(filename: Path, funcname: str) -> :
+def path(filename: Path, funcname: str):
     """Return the function call with the appropriate parameters"""
     # test to see if it is a sorting funtion
     # try:
@@ -28,11 +24,11 @@ def path(filename: Path, funcname: str) -> :
     # find what the parameter types are
     parameters = get_parameters(filename, funcname)
     if type(parameters) == int:
-        values = generator.int_generator()
+        values = generate.generate_list_with_ints()
     if type(parameters) == str:
-        values = generator.str_generator()
+        values = generate.generate_list_with_strings()
     if type(parameters) == float:
-        values = generator.float_generator()
+        values = generate.generate_list_with_floats()
 
     # return the function call with the parameters passed in
     return filename.funcname(values)
