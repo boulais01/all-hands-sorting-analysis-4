@@ -16,8 +16,7 @@ def bubble_sort(arr: List[int]):
                 arr[j], arr[j + 1] = arr[j + 1], arr[j]
 
 # Time complexity of O(n^2)
-def bubble_sort_str(arr: List[str]):
-    n = len(arr)
+def bubble_sort_str(arr: List[str], n: int):
     temp = ""
     compare = lambda a, b: (a < b) - (a > b)
     # Sort string using the bubble sort
