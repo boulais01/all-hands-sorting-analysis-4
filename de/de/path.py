@@ -41,7 +41,17 @@ def get_function_as_callable(filename: Path, funcname: str) -> Callable:
     import sys
     # TODO: this doesn't work well yet...
     # execute code of given file
-    exec(open(filename).read())
+    file = exec(open(filename).readlines())
+
+    # parsing through the file to find the different function names
+    function_names = []
+    for line in file:
+        if "def" in line:
+            # extract the function name
+            # function_name = 
+            function_names.append(function_name)
+
+    # should we just put filename instead of sys.modules?
     return getattr(sys.modules[__name__], funcname)
 
 # not sure what the output should be
