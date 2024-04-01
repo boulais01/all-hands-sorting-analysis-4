@@ -1,19 +1,19 @@
 """Run a benchmark on a function provided by a list-based structure."""
 
-from listmutator import approach, generate
+from de import enumerations, generate
 from typing import Tuple, List
 from copy import deepcopy
 import timeit
 
 # ruff: noqa: PLR0913
 
-# DONE: Add the complete implementation of benchmarking functions
-# that support the creation of output like that shown in the README.md file
+# FIXME: modify this to meet the needed project functionality
+
 def benchmark(
-    listtype: approach.ListType,
-    listdata: approach.ListData,
-    strategy: approach.BenchmarkStrategy,
-    operation: approach.BenchmarkOperation,
+    listtype: enumerations.ListType,
+    listdata: enumerations.ListData,
+    strategy: enumerations.BenchmarkStrategy,
+    operation: enumerations.BenchmarkOperation,
     startsize: int,
     runs: int
 ) -> List[Tuple[int, int, float]]:
@@ -24,16 +24,16 @@ def benchmark(
     for list_to_use in lists_to_use:
         list_to_use_copy = deepcopy(list_to_use)
         list_to_use_size = len(list_to_use)
-        if operation == approach.BenchmarkOperation.removefirst:
+        if operation == enumerations.BenchmarkOperation.removefirst:
             input("about to create removefirst...")
             print(list_to_use.display())
             print(len(list_to_use))
             lambda_func = lambda: list_to_use.removefirst()
-        elif operation == approach.BenchmarkOperation.removelast:
+        elif operation == enumerations.BenchmarkOperation.removelast:
             lambda_func = lambda: list_to_use.removelast()
-        elif operation == approach.BenchmarkOperation.add:
+        elif operation == enumerations.BenchmarkOperation.add:
             lambda_func = lambda: list_to_use + list_to_use
-        elif operation == approach.BenchmarkOperation.iadd:
+        elif operation == enumerations.BenchmarkOperation.iadd:
             lambda_func = lambda: list_to_use.__iadd__(list_to_use_copy)
 
         # test the lambda_func 5 times

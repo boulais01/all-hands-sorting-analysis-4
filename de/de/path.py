@@ -2,8 +2,12 @@
 # using getattr()
 
 import inspect
+<<<<<<< HEAD
 import generator
 from typing import Path
+=======
+from de import generate
+>>>>>>> 21303b7fc74636f61e2e1b101bb40deafc2eb040
 
 # how to get the parameters - is that somethign that I need to do
 # not sure what the output should be

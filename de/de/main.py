@@ -5,7 +5,7 @@
 import typer
 from rich.console import Console
 
-from listmutator import enumerations, benchmark
+from de import enumerations, benchmark
 from pathlib import Path
 
 # create a Typer object to support the command-line interface
@@ -13,10 +13,6 @@ cli = typer.Typer()
 
 # create a console for display of rich text
 console = Console()
-
-# TODO: Make sure that you implement all of the required functions in the other
-# file that will ensure that these function(s) work correctly.
-
 
 @cli.command()
 def main(
