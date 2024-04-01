@@ -22,6 +22,9 @@ def path(filename: Path, funcname: str) -> Tuple[Callable, enumerations.Function
 
     the_function = get_function_as_callable(filename, funcname)
 
+    # find what the parameter types are
+    parameters = get_parameters(the_function)
+
     # let's consider two cases:
     #   functions with args of f(array)
     #   functions with args of f(array, length)
