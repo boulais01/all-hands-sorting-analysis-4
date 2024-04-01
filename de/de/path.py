@@ -2,44 +2,38 @@
 # using getattr()
 
 import inspect
-from typing import Path
+import os
+# from typing import Path
 from de import generate
 
-# how to get the parameters - is that somethign that I need to do
-# not sure what the output should be
-def path(filename: Path, funcname: str, size: int):
-    """Return the function call with the appropriate parameters"""
-    # test to see if it is a sorting funtion
-    # try:
-    #     if sort in funcname:
-    # catch:
-    #     print("Are you sure this is a sorting algorithm?")
-    
-    # import the file
-    import filename
-    # could try and catch the bellow code
-    # if filename.funcname() is False:
-    #     print("This file does not seem to have that function.")
+# Path vs Callable?
 
-    # find what the parameter types are
-    parameters = get_parameters(filename, funcname)
+# https://stackoverflow.com/questions/23228664/how-to-check-which-arguments-a-function-method-takes
+# hasattr() - checks if a file has the function
+
+# not sure what the output should be
+def path(filename: str, funcname: str):
+    """Return the function call with the appropriate parameters"""
+    # convert strings -> function path
+    # it is returning type string but in a path format
+    complete_path_string = filename + "/" + funcname
+    return os.path.normpath(complete_path_string)
+
+def call_function_w_parameters(function_call: Path, size: int):
+    """Return the full function call."""
+    parameters = get_parameters(function_call)
     if type(parameters) == int:
         values = generate.generate_list_with_ints(size)
     if type(parameters) == str:
         values = generate.generate_list_with_strings(size)
     if type(parameters) == float:
         values = generate.generate_list_with_floats(size)
-
     # return the function call with the parameters passed in
-    return filename.funcname(values)
+    return function_call(values)
 
-# https://stackoverflow.com/questions/23228664/how-to-check-which-arguments-a-function-method-takes
-# hasattr() - checks if a file has the function
-
-# def function(funcname):
-
-def get_parameters(filename, funcname):
-    import filename
-    function_call = filename.funcname()
+def get_parameters(function_call: Path):
+    """Find the parameters of a function."""
     parameters = inspect.getargspec(function_call).args
     return parameters
+
+# print(type(path("hi", "func")))
