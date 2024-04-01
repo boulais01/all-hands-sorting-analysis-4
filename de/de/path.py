@@ -6,7 +6,7 @@ from pathlib import Path
 from typing import Callable, Tuple
 from de import generate, enumerations
 
-# how to get the parameters - is that somethign that I need to do
+# how to get the parameters - is that something that I need to do
 # not sure what the output should be
 def path(filename: Path, funcname: str) -> Tuple[Callable, enumerations.FunctionParamTypes]:
     """Return the function call with the appropriate parameters"""
@@ -67,7 +67,7 @@ def call_function_w_parameters(function_call: Path, size: int):
     # return the function call with the parameters passed in
     return function_call(values)
 
-def get_parameters(function_call: Path):
+def get_parameters(function_call):
     """Find the parameters of a function."""
     parameters = inspect.getargspec(function_call).args
     return parameters
