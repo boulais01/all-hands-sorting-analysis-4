@@ -1,7 +1,7 @@
 """Run a benchmark on a function provided by a list-based structure."""
 
 import time
-from typing import List, Tuple
+from typing import List, Tuple, Callable
 
 from de import enumerations, generate
 from de.constants import constants
@@ -11,6 +11,7 @@ from de.constants import constants
 def benchmark(
     listdata: enumerations.ListData,
     functype: enumerations.FunctionParamTypes,
+    funcname: Callable,
     startsize: int,
     runs: int,
 ) -> List[Tuple[int, int, float]]:
@@ -19,7 +20,26 @@ def benchmark(
     times_list = []
     size = startsize
     generate_func = getattr(generate, "generate_list_with_" + listdata)
-    list_one = generate_func(listtype, size)
+    list_one = generate_func(size)
+    if functype is enumerations.FunctionParamTypes.just_array:
+        for i in range(runs):
+            if i > 0:
+                size += size
+                list_one += generate_func(size)
+            start = time.perf_counter()
+            funcname(list_one)
+            stop = time.perf_counter()
+            times_list.append((i + 1, size, end - start))
+    else:
+        for i in range(runs):
+            if i > 0:
+                size += size
+                list_one += generate_func(size)
+            # Order passed in must be array, size
+            start = time.perf_counter()
+            funcname(list_one, size)
+            stop = time.perf_counter()
+            times_list.append((i + 1, size, end - start))
     # return list of tuples (run_num, size, run_time)
     return times_list
 
