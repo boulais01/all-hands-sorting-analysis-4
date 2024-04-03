@@ -1,7 +1,7 @@
 """Functions that extract the filename and function name."""
 # using getattr()
 
-import inspect, os
+import inspect, os, sys
 from pathlib import Path
 from typing import Callable, Tuple
 from de import generate, enumerations
@@ -38,22 +38,25 @@ def path(filename: Path, funcname: str) -> Tuple[Callable, enumerations.Function
 
 def get_function_as_callable(filename: Path, funcname: str) -> Callable:
     """Extract the specified function from the specified python file."""
-    import sys
-    # TODO: this doesn't work well yet...
+
     # execute code of given file
-    # how to execute just the one function we want and not the whole file?
-    file = exec(open(filename).readlines())
+    exec(open(filename).read())
 
-    # parsing through the file to find the different function names
-    function_names = []
-    for line in file:
-        if "def" in line:
-            # extract the function name
-            # function_name = 
-            function_names.append(function_name)
+    # try to avoid calling a function that doesn't exist
+    # checking different aspects about the file and the function
 
+    # to check if funcname is a function
+    # there is also the ismethod() function which might fit more appropriately
+    if inspect.isfunction(filename.funcname) is False:
+        print("Are you sure you passed in the correct function?")
+    
+    # to check if there are functions in the module
+    if inspect.getmembers(filename) is None:
+        print("Are you sure this function exists in this file?")
+
+    else:
     # should we just put filename instead of sys.modules?
-    return getattr(sys.modules[__name__], funcname)
+        return getattr(sys.modules[__name__], funcname)
 
 # not sure what the output should be
 def path(filename: str, funcname: str):
@@ -80,6 +83,7 @@ def call_function_w_parameters(function_call: Path, size: int):
 
 def get_parameters(function_call):
     """Find the parameters of a function."""
+    # another method to get a look at the args and kwds is inspect.signature
     parameters = inspect.getargspec(function_call).args
     return parameters
 
