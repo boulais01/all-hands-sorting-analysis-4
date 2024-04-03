@@ -58,14 +58,6 @@ def get_function_as_callable(filename: Path, funcname: str) -> Callable:
     # should we just put filename instead of sys.modules?
         return getattr(sys.modules[__name__], funcname)
 
-# not sure what the output should be
-def path(filename: str, funcname: str):
-    """Return the function call with the appropriate parameters"""
-    # convert strings -> function path
-    # it is returning type string but in a path format
-    complete_path_string = filename + "/" + funcname
-    return os.path.normpath(complete_path_string)
-
 # https://stackoverflow.com/questions/23228664/how-to-check-which-arguments-a-function-method-takes
 # hasattr() - checks if a file has the function
 
