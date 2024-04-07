@@ -8,7 +8,7 @@ class ListData(str, Enum):
 
     ints = "ints"
     strings = "strings"
-    floats = "strings"
+    floats = "floats"
 
     def __str__(self):
         """Define a default string representation."""
