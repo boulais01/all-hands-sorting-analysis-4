@@ -36,14 +36,12 @@ def main(
     )
     console.print(f"Type of list: {listtype}")
     console.print(f"Data stored in list: {listdata}")
-    console.print(f"Benchmarking strategy: {strategy}")
-    console.print(f"Benchmarking operation: {operation}")
     console.print(f"Number of runs: {runs}\n")
     # extract function from the given file
     func, param_types = path.path(filename, funcname)
     # perform the benchmarking operation
     benchmark_data = benchmark.benchmark(
-        listtype, listdata, strategy, operation, startsize, runs
+        listdata, param_types, func, startsize, runs
     )
     console.print()
     # display the results concerning the minimum execution time

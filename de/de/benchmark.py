@@ -29,7 +29,7 @@ def benchmark(
             start = time.perf_counter()
             funcname(list_one)
             stop = time.perf_counter()
-            times_list.append((i + 1, size, end - start))
+            times_list.append((i + 1, size, stop - start))
     else:
         for i in range(runs):
             if i > 0:
@@ -39,7 +39,7 @@ def benchmark(
             start = time.perf_counter()
             funcname(list_one, size)
             stop = time.perf_counter()
-            times_list.append((i + 1, size, end - start))
+            times_list.append((i + 1, size, stop - start))
     # return list of tuples (run_num, size, run_time)
     return times_list
 
