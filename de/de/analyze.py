@@ -1,6 +1,4 @@
 """Analyze the doubling results and estimates O(n) based on benchmarks results."""
-from typing import List, Tuple, Callable
-
 from de import benchmark, enumerations
 
 from typing import List, Tuple, Callable
