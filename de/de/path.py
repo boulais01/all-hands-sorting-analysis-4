@@ -1,7 +1,7 @@
 """Functions that extract the filename and function name."""
 # using getattr()
 
-import inspect, os
+import inspect, os, sys
 from pathlib import Path
 from typing import Callable, Tuple
 from de import generate, enumerations
@@ -32,42 +32,31 @@ def path(filename: Path, funcname: str) -> Tuple[Callable, enumerations.Function
         function_param_type = enumerations.FunctionParamTypes.just_array
     elif len(parameters) == 2:
         function_param_type = enumerations.FunctionParamTypes.array_and_length
+    elif len(parameters) == 3:
+        raise ValueError(f"Function '{funcname}' has greater than two parameters.")
 
     # return the function call with the description of its parameters
     return (the_function, function_param_type)
 
 def get_function_as_callable(filename: Path, funcname: str) -> Callable:
     """Extract the specified function from the specified python file."""
-    import sys
-    # TODO: this doesn't work well yet...
-    # execute code of given file
-    # how to execute just the one function we want and not the whole file?
-    file = exec(open(filename).readlines())
 
-    # parsing through the file to find the different function names
-    function_names = []
-    for line in file:
-        if "def" in line:
-            # extract the function name
-            # function_name = 
-            function_names.append(function_name)
+    with open(filename, 'r') as file:
+        code = compile(file.read(), filename, 'exec')
+        namespace = {}
+        exec(code, namespace)
 
-    # should we just put filename instead of sys.modules?
-    return getattr(sys.modules[__name__], funcname)
+    # try to avoid calling a function that doesn't exist
+    # checking different aspects about the file and the function
+    if funcname not in namespace:
+        raise AttributeError(f"Function '{funcname}' not found in '{filename}'")
+    if not callable(namespace[funcname]):
+        raise BalueError(f"'{funcname}' was not found to be a function.")
 
-# not sure what the output should be
-def path(filename: str, funcname: str):
-    """Return the function call with the appropriate parameters"""
-    # convert strings -> function path
-    # it is returning type string but in a path format
-    complete_path_string = filename + "/" + funcname
-    return os.path.normpath(complete_path_string)
-
-# https://stackoverflow.com/questions/23228664/how-to-check-which-arguments-a-function-method-takes
-# hasattr() - checks if a file has the function
+    return namespace[funcname]
 
 def call_function_w_parameters(function_call: Path, size: int):
-    """Return the full function call."""
+    """Return the result of the full function call."""
     parameters = get_parameters(function_call)
     if type(parameters) == int:
         values = generate.generate_list_with_ints(size)
@@ -80,13 +69,5 @@ def call_function_w_parameters(function_call: Path, size: int):
 
 def get_parameters(function_call):
     """Find the parameters of a function."""
-    parameters = inspect.getargspec(function_call).args
-    return parameters
-
-# simple path creation function
-def str_path_creation(filename: str, funcname: str):
-    """Return the function call with the appropriate parameters"""
-    # convert strings -> function path
-    # it is returning type string but in a path format
-    complete_path_string = filename + "/" + funcname
-    return os.path.normpath(complete_path_string)
+    signature = inspect.signature(function_call)
+    return signature.parameters

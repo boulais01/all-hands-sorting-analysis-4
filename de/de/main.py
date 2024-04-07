@@ -5,7 +5,7 @@
 import typer
 from rich.console import Console
 
-from de import enumerations, benchmark
+from de import enumerations, benchmark, path
 from pathlib import Path
 
 # create a Typer object to support the command-line interface
@@ -39,6 +39,8 @@ def main(
     console.print(f"Benchmarking strategy: {strategy}")
     console.print(f"Benchmarking operation: {operation}")
     console.print(f"Number of runs: {runs}\n")
+    # extract function from the given file
+    func, param_types = path.path(filename, funcname)
     # perform the benchmarking operation
     benchmark_data = benchmark.benchmark(
         listtype, listdata, strategy, operation, startsize, runs
