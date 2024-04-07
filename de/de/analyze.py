@@ -1,23 +1,17 @@
 """Analyze the doubling results and estimates O(n) based on benchmarks results."""
 from de import benchmark, enumerations
 
-from typing import List, Tuple, Callable
-import time
-
-# Assumption 1: Constant time complexity
 def func_constant_time(lst):
-    # Assuming this function operates in constant time
+    """Computing a constant time complexity"""
     pass
 
-# Assumption 2: Linear time complexity
 def func_linear_time(lst):
-    # Assuming this function iterates over the entire list once
+    """Computing a linear time complexity"""
     for item in lst:
         pass
 
-# Assumption 3: Logarithmic time complexity
 def func_logarithmic_time(lst):
-    # Assuming this function operates in logarithmic time
+    """Computing a logarithmic time complexity"""
     length = len(lst)
     i = 1
     while i < length:
