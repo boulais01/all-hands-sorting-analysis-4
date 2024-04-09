@@ -8,9 +8,21 @@ This tool is used to run a doubling experiment on an input sorting algorithm
 
 ## How to Use the Tool
 
-This tool is run by navigating into the first `de` folder, running a `poetry install`, and then running the command:
+This tool is run by navigating into the first `de` folder, running a `poetry install`. 
+With this setup complete, one runs a command similar to the example one below, replacing the
+example inputs with the actual.
 
-`poetry run de`
+`poetry run de --filename path/to/sortingfile.py --funcname sortingfunction --listdata ints`
+
+A sample output of running the program:
+
+Command: ``
+
+Output:
+
+```
+
+```
 
 ## Guidelines for Project Construction
 
