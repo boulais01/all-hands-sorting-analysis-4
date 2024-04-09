@@ -24,7 +24,7 @@ def main(
     ),
     listdata: enumerations.ListData = typer.Option(
         enumerations.ListData.ints,
-    )
+    ),
     startsize: int = typer.Option(100),
     runs: int = typer.Option(5),
 ):
