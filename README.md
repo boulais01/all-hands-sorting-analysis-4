@@ -14,6 +14,9 @@ example inputs with the actual.
 
 `poetry run de --filename path/to/sortingfile.py --funcname sortingfunction --listdata ints`
 
+The `filename` and `funcname` parameters are required, as they have no default value.
+`listdata` will default to `ints`, though the other options are `strings` and `floats`.
+
 A sample output of running the program:
 
 Command: ``
