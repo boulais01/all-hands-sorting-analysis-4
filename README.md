@@ -12,19 +12,33 @@ This tool is run by navigating into the first `de` folder, running a `poetry ins
 With this setup complete, one runs a command similar to the example one below, replacing the
 example inputs with the actual.
 
-`poetry run de --filename path/to/sortingfile.py --funcname sortingfunction --listdata ints`
+`poetry run de --filename path/to/sortingfile.py --funcname sortingfunction --listdata ints --startsize 100 --runs 5`
 
 The `filename` and `funcname` parameters are required, as they have no default value.
 `listdata` will default to `ints`, though the other options are `strings` and `floats`.
+The `startsize` and `runs` parameters have default values shown above, and are for noting
+what the initial size of the list to start will be and how many doublings should be completed,
+respectively.
 
 A sample output of running the program:
 
-Command: ``
+Command: `poetry run de --filename tests/benchmarkable_functions.py --funcname bubble_sort`
 
 Output:
 
 ```
+Benchmarking Tool for Sorting Algorithms
 
+Filepath: tests/benchmarkable_functions.py
+Function: bubble_sort
+Data to sort: ints
+Number of runs: 5
+
+
+Minimum execution time: 0.0003840000 seconds for run 1 with size 100
+Maximum execution time: 0.3893094030 seconds for run 5 with size 1600
+
+Average execution time: 0.1006802406 seconds across runs 1 through 5
 ```
 
 ## Guidelines for Project Construction
