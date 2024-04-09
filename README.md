@@ -2,6 +2,18 @@
 
 The work for Team 4 of the All-Hands session, to implement a benchmarking framework. 
 
+## What the Tool is Used For
+
+This tool is used to run a doubling experiment on an input sorting algorithm
+
+## How to Use the Tool
+
+This tool is run by navigating into the first `de` folder, running a `poetry install`, and then running the command:
+
+`poetry run de`
+
+## Guidelines for Project Construction
+
 It operates in the following fashion.
 - Accept as input one or more Python source code files that contain one or more functions that perform sorting. For the purposes of creating your benchmarking framework you can assume that all sorting algorithms will implement the same function signature that you carefully document in a README and your tool's comments.
 - Accept as input the fully-qualified name of a sorting function that should be subject to benchmarking.
