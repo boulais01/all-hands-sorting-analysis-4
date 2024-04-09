@@ -25,14 +25,17 @@ def main(
     listdata: enumerations.ListData = typer.Option(
         enumerations.ListData.ints,
     )
+    startsize: int = typer.Option(100),
+    runs: int = typer.Option(5),
 ):
     """Evaluate the performance of a given sorting algorithm."""
     # display details about the efficiency of a sorting algorithm
     console.print(
         "\n[bold red]Benchmarking Tool for Sorting Algorithms[/bold red]\n"
     )
-    console.print(f"Type of list: {listtype}")
-    console.print(f"Data stored in list: {listdata}")
+    console.print(f"Filepath: {filename}")
+    console.print(f"Function: {funcname}")
+    console.print(f"Data to sort: {listdata}")
     console.print(f"Number of runs: {runs}\n")
     # extract function from the given file
     func, param_types = path.path(filename, funcname)
