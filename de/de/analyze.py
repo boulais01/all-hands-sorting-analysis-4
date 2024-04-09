@@ -1,8 +1,15 @@
 """Analyze the doubling results and estimates O(n) based on benchmarks results."""
 from de import benchmark, enumerations
 
+# instead of this, something that takes in the benchmark list of tuples
+# extracts the time values(stored in index 2 of each tuple) and the size
+# index 1, and uses that to ascertain if the time complexity of the input function.
+
 def func_constant_time(lst):
     """Computing a constant time complexity"""
+    # for example; iterate through the given list. if in a doubling experiment,
+    # the size should double for each run. If the run time is less than twice the
+    # one before it, accounting with some constant for variability, then it may be constant.
     pass
 
 def func_linear_time(lst):
