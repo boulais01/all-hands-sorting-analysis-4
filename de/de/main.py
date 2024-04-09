@@ -24,10 +24,7 @@ def main(
     ),
     listdata: enumerations.ListData = typer.Option(
         enumerations.ListData.ints,
-    ),
-    strategy: enumerations.BenchmarkStrategy = typer.Option(
-        enumerations.BenchmarkStrategy.double,
-    ),
+    )
 ):
     """Evaluate the performance of a given sorting algorithm."""
     # display details about the efficiency of a sorting algorithm
