@@ -64,3 +64,10 @@ def main(
         f"Average execution time: {average_value:.10f} seconds"
         f" across runs 1 through {len(benchmark_data)}"
     )
+    # --> average doubling ratio
+    console.print()
+    average_value = benchmark.compute_average_doubling_ratio(benchmark_data)
+    console.print(
+        f"Average doubling ratio: {average_value:.10f}"
+        f" across runs 1 through {len(benchmark_data)}"
+    )

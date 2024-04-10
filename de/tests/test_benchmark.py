@@ -3,6 +3,7 @@
 from de import benchmark, enumerations, path
 
 from pathlib import Path
+from math import isclose
 
 time_check_list = [(1, 100, 2.0000089765), (2, 200, 4.0032089765), (3, 400, 8.0076589765), (4, 800, 16.540089765)]
 
@@ -46,3 +47,8 @@ def test_compute_average():
     """Check that the compute average function returns the average of the times."""
     average = benchmark.compute_average(time_check_list)
     assert average == 7.637741673625
+
+def test_compute_doubling_ratio():
+    """Check that the compute doubling ratio function returns the correct average doubling ratio."""
+    average_doubling_ratio = benchmark.compute_average_doubling_ratio(time_check_list)
+    assert isclose(average_doubling_ratio, 2.0224797493647424)
