@@ -5,7 +5,7 @@
 import typer
 from rich.console import Console
 
-from de import enumerations, benchmark, path
+from de import enumerations, benchmark, path, analyze
 from pathlib import Path
 
 # create a Typer object to support the command-line interface
@@ -66,8 +66,19 @@ def main(
     )
     # --> average doubling ratio
     console.print()
-    average_value = benchmark.compute_average_doubling_ratio(benchmark_data)
+    average_doubling_ratio = benchmark.compute_average_doubling_ratio(benchmark_data)
     console.print(
-        f"Average doubling ratio: {average_value:.10f}"
+        f"Average doubling ratio: {average_doubling_ratio:.10f}"
         f" across runs 1 through {len(benchmark_data)}"
     )
+    # --> estimated time complexity
+    console.print()
+    estimated_time_complexity = analyze.estimate_time_complexity(average_doubling_ratio)
+    if estimated_time_complexity == enumerations.TimeComplexity.notsure:
+        console.print(
+            f"[bold red]Unable to determine time complexity.[/bold red] [bold yellow]Perhaps try again?[/bold yellow]"
+        )
+    else:
+        console.print(
+            f"[bold green]Estimated time complexity: O({estimated_time_complexity})[/bold green]"
+        )

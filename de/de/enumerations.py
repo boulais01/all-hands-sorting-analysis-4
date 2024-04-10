@@ -25,3 +25,16 @@ class FunctionParamTypes(str, Enum):
     def __str__(self):
         """Define a default string representation."""
         return self.value
+
+class TimeComplexity(str, Enum):
+    """Define valid time complexities for sorting operations."""
+    constant = "1"
+    linear = "n"
+    quadratic = "n²"
+    logarithmic = "log(n)"
+    linearithmic = "n log(n)"
+    notsure = "not sure"
+
+    def __str__(self):
+        """Define a default string representation."""
+        return self.value
