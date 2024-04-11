@@ -1,11 +1,23 @@
 """Test suite for the constants module."""
 
-# ruff: noqa: PLR2004
+from de import constants
 
-# Note: implement test cases for any of the constants.
-#
-# Note: You also need to implement test cases for:
-# - The constant enumeration(s) in the approach module.
-# - All of the methods associated data generation
-# - All of the methods associated running a benchmark
-# - All of the methods associated with the SLL and DLL
+def test_min_int_value():
+    assert constants.Min_Int_Value == -(1 << 32)
+
+def test_max_int_value():
+    assert constants.Max_Int_Value == +(1 << 32)
+
+def test_min_float_value():
+    assert constants.Min_Float_Value == float(-(1 << 32))
+
+def test_max_float_value():
+    assert constants.Max_Float_Value == float(+(1 << 32))
+
+def test_min_string_size():
+    assert constants.Min_String_Size == 1
+
+def test_max_string_size():
+    assert constants.Max_String_Size == 100
+
+
