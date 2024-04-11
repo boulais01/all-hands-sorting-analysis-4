@@ -4,9 +4,10 @@ from dataclasses import dataclass
 from de import enumerations
 from typing import List, Tuple
 from pathlib import Path
+# from enum import Enum
 
 @dataclass(frozen=True)
-class Constants:
+class Constants():
     Min_Int_Value: int
     Max_Int_Value: int
     Min_Float_Value: float
