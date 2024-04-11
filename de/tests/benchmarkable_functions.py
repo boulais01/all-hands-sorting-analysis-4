@@ -39,8 +39,8 @@ def selection_sort(arr, n):
         (arr[s], arr[min_idx]) = (arr[min_idx], arr[s])
 
 # Time complexity of O(n^2)
-def insertion_sort(arr):
-    for i in range(1, len(arr)):
+def insertion_sort(arr, n):
+    for i in range(1, n):
         a = arr[i]
         j = i - 1
         while j >= 0 and a < arr[j]:
