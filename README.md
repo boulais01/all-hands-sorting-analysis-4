@@ -47,6 +47,24 @@ Average doubling ratio: 4.0301311823 across runs 1 through 5
 Estimated time complexity: O(n²)
 ```
 
+Running `de` without any arguments will benchmark six sample sorting algorithms
+with their estimated runtime complexities. These are not always guaranteed to be
+correct!
+
+```sh
+$ de
+
+Benchmarking Tool for Sorting Algorithms
+
+Estimated time complexity for tests/benchmarkable_functions.py -> bubble_sort: O(n²)
+Estimated time complexity for tests/benchmarkable_functions.py -> bubble_sort_str: O(n²)
+Estimated time complexity for tests/benchmarkable_functions.py -> selection_sort: O(n²)
+Estimated time complexity for tests/benchmarkable_functions.py -> insertion_sort: O(n²)
+Estimated time complexity for tests/benchmarkable_functions.py -> heap_sort: O(n)
+Estimated time complexity for tests/benchmarkable_functions.py -> quick_sort: O(n log(n))
+Estimated time complexity for tests/benchmarkable_functions.py -> merge_sort: O(n log(n))
+```
+
 ### Available Options
 
 ```
