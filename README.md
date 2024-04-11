@@ -1,10 +1,10 @@
 # all-hands-sorting-analysis-4
 
-The work for Team 4 of the All-Hands session, to implement a benchmarking framework. 
+The work for Team 4 of the All-Hands session, to implement a benchmarking framework.
 
 ## What the Tool is Used For
 
-This tool is used to run a doubling experiment on an input sorting algorithm
+This tool is used to run a doubling experiment on an input sorting algorithm.
 
 ## How to Use the Tool
 
@@ -12,9 +12,7 @@ This tool is run by navigating into the first `de` folder, running a `poetry
 install`. With this setup complete, one runs a command similar to the example
 one below, replacing the example inputs with the actual.
 
-```
-poetry run de --filename path/to/sortingfile.py --funcname sortingfunction --listdata ints --startsize 100 --runs 5
-```
+`poetry run de --filename path/to/sortingfile.py --funcname sortingfunction --listdata ints --startsize 100 --runs 5`
 
 The `filename` and `funcname` parameters are required, as they have no default
 value. `listdata` will default to `ints`, though the other options are `strings`
@@ -48,8 +46,6 @@ Estimated time complexity: O(n²)
 ```
 
 In the case of the sample output, the `--filename` argument specifies the file path of the Python script containing the sorting algorithm to be benchmarked. The `--funcname` argument specifies the name of the specific sorting function within the file that is being benchmarked, which in this case is `bubble_sort`. Because arguments for both `--listdata`, `--startsize` and `--runs` were not provided, they are given the default values as defined which in this case are `ints`, `100` and `5` respectively
-
-A sample command showcasing changing these default values: `poetry run de --filename tests/benchmarkable_functions.py --funcname quick_sort --startsize 50 --runs 10`
 
 When discussing how the various files interact to make the benchmarking process succeed, it first leverages the `enumerations` file to define enums related to list data types and time complexity, enabling the specification of data types for sorting. Secondly, the `benchmark` file provides functions for benchmarking algorithms, including computing minimum and maximum execution times, average execution times, and estimating time complexity. Furthermore, the `path` module is employed to extract the specified sorting function from a given file. The `analyze` file utilizes `enumerations` to estimate the time complexity of sorting algorithms based on the average doubling ratio computed during benchmarking. Additionally, constants from the `constants` file aid in determining default behaviors when no arguments are supplied.
 
