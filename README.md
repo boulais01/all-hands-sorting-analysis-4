@@ -28,7 +28,7 @@ Command: `poetry run de --filename tests/benchmarkable_functions.py --funcname b
 
 Output:
 
-```
+```text
 Benchmarking Tool for Sorting Algorithms
 
 Filepath: tests/benchmarkable_functions.py
@@ -46,6 +46,12 @@ Average doubling ratio: 4.0301311823 across runs 1 through 5
 
 Estimated time complexity: O(n²)
 ```
+
+In the case of the sample output, the `--filename` argument specifies the file path of the Python script containing the sorting algorithm to be benchmarked. The `--funcname` argument specifies the name of the specific sorting function within the file that is being benchmarked, which in this case is `bubble_sort`. Because arguments for both `--listdata`, `--startsize` and `--runs` were not provided, they are given the default values as defined which in this case are `ints`, `100` and `5` respectively
+
+A sample command showcasing changing these default values: `poetry run de --filename tests/benchmarkable_functions.py --funcname quick_sort --startsize 50 --runs 10`
+
+When discussing how the various files interact to make the benchmarking process succeed, it first leverages the `enumerations` file to define enums related to list data types and time complexity, enabling the specification of data types for sorting. Secondly, the `benchmark` file provides functions for benchmarking algorithms, including computing minimum and maximum execution times, average execution times, and estimating time complexity. Furthermore, the `path` module is employed to extract the specified sorting function from a given file. The `analyze` file utilizes `enumerations` to estimate the time complexity of sorting algorithms based on the average doubling ratio computed during benchmarking. Additionally, constants from the `constants` file aid in determining default behaviors when no arguments are supplied.
 
 Running `de` without any arguments will benchmark six sample sorting algorithms
 with their estimated runtime complexities. These are not always guaranteed to be
