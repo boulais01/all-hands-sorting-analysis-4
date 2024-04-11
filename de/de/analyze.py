@@ -16,7 +16,7 @@ def estimate_time_complexity(average_doubling_ratio: float) -> enumerations.Time
     elif average_doubling_ratio_rounded == 4:
         return enumerations.TimeComplexity.quadratic
     # r < 1.75 is logarithmic
-    elif average_doubling_ratio < 1.75:
+    elif average_doubling_ratio > 1.25 and average_doubling_ratio < 1.75:
         return enumerations.TimeComplexity.logarithmic
     # r approximately 1 is constant
     elif average_doubling_ratio_rounded == 1:

@@ -84,6 +84,7 @@ def compute_average(times_list: List[Tuple[int, int, float]]) -> float:
 
 def compute_average_doubling_ratio(times_list: List[Tuple[int, int, float]]) -> float:
     times = [item[2] for item in times_list]
+    print(times)
     # iterate through times, calculating doubling ratios between runs
     doubling_ratios = [times[i+1] / times[i] for i in range(len(times) - 1)]
     # calculate average doubling ratio

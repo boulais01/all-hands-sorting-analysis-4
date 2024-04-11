@@ -12,9 +12,9 @@ def test_path_bubble_sort_float():
     arr_sorted = sorted(arr)
     # ensure the return type of the path method is as expected
     assert callable(path.path(filename, funcname)[0])
-    assert path.path(filename, funcname)[1] == enumerations.FunctionParamTypes.just_array
+    assert path.path(filename, funcname)[1] == enumerations.FunctionParamTypes.array_and_length
     # run sorting algorithm on test arr
-    path.path(filename, funcname)[0](arr)
+    path.path(filename, funcname)[0](arr, len(arr))
     assert arr == arr_sorted
 
 def test_path_bubble_sort_int():
@@ -25,9 +25,9 @@ def test_path_bubble_sort_int():
     arr_sorted = sorted(arr)
     # ensure the return type of the path method is as expected
     assert callable(path.path(filename, funcname)[0])
-    assert path.path(filename, funcname)[1] == enumerations.FunctionParamTypes.just_array
+    assert path.path(filename, funcname)[1] == enumerations.FunctionParamTypes.array_and_length
     # run sorting algorithm on test arr
-    path.path(filename, funcname)[0](arr)
+    path.path(filename, funcname)[0](arr, len(arr))
     assert arr == arr_sorted
 
 def test_path_bubble_sort_str():

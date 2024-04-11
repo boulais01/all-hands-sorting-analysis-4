@@ -2,9 +2,11 @@
 
 from typing import List
 
+def noop(arr: List):
+    pass
+
 # Time complexity of O(n^2)
-def bubble_sort(arr: List[int]):
-    n = len(arr)
+def bubble_sort(arr: List[int], n: int):
     # For loop to traverse through all
     # element in an array
     for i in range(n):
