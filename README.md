@@ -12,7 +12,7 @@ This tool is run by navigating into the first `de` folder, running a `poetry
 install`. With this setup complete, one runs a command similar to the example
 one below, replacing the example inputs with the actual.
 
-`poetry run de --filename path/to/sortingfile.py --funcname sortingfunction --listdata ints --startsize 100 --runs 5`
+Command: `poetry run de --filename path/to/sortingfile.py --funcname sortingfunction --listdata ints --startsize 100 --runs 5`
 
 The `filename` and `funcname` parameters are required, as they have no default
 value. `listdata` will default to `ints`, though the other options are `strings`
