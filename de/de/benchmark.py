@@ -25,7 +25,7 @@ def benchmark(
         for i in range(runs):
             if i > 0:
                 size += size
-                list_one += generate_func(size)
+                list_one = generate_func(size)
             start = time.perf_counter()
             funcname(list_one)
             stop = time.perf_counter()
@@ -34,7 +34,7 @@ def benchmark(
         for i in range(runs):
             if i > 0:
                 size += size
-                list_one += generate_func(size)
+                list_one = generate_func(size)
             # Order passed in must be array, size
             start = time.perf_counter()
             funcname(list_one, size)
